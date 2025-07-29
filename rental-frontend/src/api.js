@@ -1,3 +1,5 @@
+import { buildApiUrl } from './config/api';
+
 // Centralized API utility to always send JWT token if present
 export function apiFetch(url, options = {}) {
   const token = localStorage.getItem('token');
@@ -12,7 +14,7 @@ export function apiFetch(url, options = {}) {
 // Send confirmation email after successful payment
 export async function sendConfirmationEmail(bookingDetails) {
   try {
-    const response = await apiFetch('http://localhost:8080/bookings/send-confirmation-email', {
+    const response = await apiFetch(buildApiUrl('/bookings/send-confirmation-email'), {
       method: 'POST',
       body: JSON.stringify(bookingDetails)
     });

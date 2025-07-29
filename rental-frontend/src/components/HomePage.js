@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/LandingPage.css';
 import { apiFetch } from '../api';
+import { buildApiUrl } from '../config/api';
 import '../styles/HomePage.css';
 
 const HomePage = () => {
@@ -30,7 +31,7 @@ const HomePage = () => {
 
   // Update rentalcar handler
   const handleUpdateRentalCar = (carId) => {
-    fetch(`/rentalcars/${carId}`, {
+    fetch(buildApiUrl(`/rentalcars/${carId}`), {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') },
       body: JSON.stringify(editData)
@@ -56,7 +57,7 @@ const HomePage = () => {
   // Delete rentalcar handler
   const handleDeleteRentalCar = (carId, brand) => {
     if (!window.confirm(`Are you sure you want to delete rentalcar '${brand}' (ID: ${carId})?`)) return;
-    fetch(`/rentalcars/${carId}`, { method: 'DELETE', headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') } })
+    fetch(buildApiUrl(`/rentalcars/${carId}`), { method: 'DELETE', headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') } })
       .then((response) => {
         if (!response.ok) {
           return response.text().then(text => {
@@ -84,7 +85,7 @@ const HomePage = () => {
     setLoading(true);
     setError(null);
     setRentalCars([]);
-    apiFetch('/rentalcars', {
+    apiFetch(buildApiUrl('/rentalcars'), {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       }

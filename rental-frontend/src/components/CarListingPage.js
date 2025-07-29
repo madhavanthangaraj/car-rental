@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import { apiFetch } from '../api';
+import { buildApiUrl } from '../config/api';
 import '../styles/CarListingPage.css';
 
 import { FaEye, FaEdit, FaTrash, FaCarSide } from 'react-icons/fa';
@@ -52,7 +53,7 @@ const CarListingPage = () => {
         seatingCapacity: parseInt(editForm.seatingCapacity, 10),
         rentalPricePerDay: parseFloat(editForm.rentalPricePerDay)
       };
-      const res = await apiFetch(`/rentalcars/${carId}`, {
+      const res = await apiFetch(buildApiUrl(`/rentalcars/${carId}`), {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
         body: JSON.stringify(dataToSend)
@@ -72,7 +73,7 @@ const CarListingPage = () => {
     if (!window.confirm('Are you sure you want to delete this car?')) return;
     try {
       const token = localStorage.getItem('token');
-      const res = await apiFetch(`/rentalcars/${carId}`, {
+      const res = await apiFetch(buildApiUrl(`/rentalcars/${carId}`), {
         method: 'DELETE',
         headers: { 'Authorization': 'Bearer ' + token }
       });
@@ -97,7 +98,7 @@ const CarListingPage = () => {
     }
     setIsLoggedIn(true);
     setLoading(true);
-    apiFetch('/rentalcars', {
+    apiFetch(buildApiUrl('/rentalcars'), {
       headers: { 'Authorization': 'Bearer ' + token }
     })
       .then(response => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { buildApiUrl } from '../config/api';
 import '../styles/LoginForm.css';
 
 const LoginForm = () => {
@@ -20,7 +21,7 @@ const LoginForm = () => {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(buildApiUrl('/api/auth/login'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)

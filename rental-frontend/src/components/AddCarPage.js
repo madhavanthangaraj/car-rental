@@ -3,6 +3,7 @@ import '../styles/AddCarPage.css';
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
 import { apiFetch } from '../api';
+import { buildApiUrl } from '../config/api';
 
 const AddCarPage = () => {
 
@@ -42,7 +43,7 @@ const AddCarPage = () => {
         rentalPricePerDay: parseFloat(form.rentalPricePerDay)
       };
       
-      const res = await apiFetch('/rentalcars', {
+      const res = await apiFetch(buildApiUrl('/rentalcars'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dataToSend)

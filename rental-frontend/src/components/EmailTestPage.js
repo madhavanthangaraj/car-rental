@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { buildApiUrl } from '../config/api';
 
 const EmailTestPage = () => {
   const [email, setEmail] = useState('madhavan8610331381@gmail.com');
@@ -10,7 +11,7 @@ const EmailTestPage = () => {
     setMessage('');
     
     try {
-      const response = await fetch('http://localhost:8080/bookings/test-email', {
+      const response = await fetch(buildApiUrl('/bookings/test-email'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

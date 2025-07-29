@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './Header1';
 import { apiFetch } from '../api';
+import { buildApiUrl } from '../config/api';
 import '../styles/CarListingPage1.css';
 import { FaHeart } from 'react-icons/fa';
 
@@ -118,7 +119,7 @@ const CarListingPage = () => {
   // Load like data from backend API
   const loadLikeData = async (carIds) => {
     try {
-      const response = await apiFetch('/api/car-likes/batch-counts', {
+      const response = await apiFetch(buildApiUrl('/api/car-likes/batch-counts'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -140,7 +141,7 @@ const CarListingPage = () => {
   // Handle like toggle (backend API)
   const handleLike = async (carId) => {
     try {
-      const response = await apiFetch(`/api/car-likes/increment/${carId}`, {
+      const response = await apiFetch(buildApiUrl(`/api/car-likes/increment/${carId}`), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -178,7 +179,7 @@ const CarListingPage = () => {
     }
 
     try {
-      const response = await apiFetch(`/bookings/check-availability/${car.carId}?startDate=2024-01-01&numberOfDays=1`);
+      const response = await apiFetch(buildApiUrl(`/bookings/check-availability/${car.carId}?startDate=2024-01-01&numberOfDays=1`));
       const availabilityData = await response.json();
       
       if (availabilityData.available) {
@@ -208,7 +209,7 @@ const CarListingPage = () => {
         numberOfDays: parseInt(bookingForm.numberOfDays)
       };
 
-      const response = await apiFetch('/bookings/create', {
+      const response = await apiFetch(buildApiUrl('/bookings/create'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -264,7 +265,7 @@ const CarListingPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await apiFetch('/rentalcars');
+        const response = await apiFetch(buildApiUrl('/rentalcars'));
         const data = await response.json();
         setCars(data);
         
