@@ -1,0 +1,108 @@
+.ems-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000;
+  color: #fff;
+  padding: 0 32px;
+  height: 80px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.ems-header__nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.ems-header__link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 4px;
+  transition: background 0.18s;
+  letter-spacing: 0.5px;
+}
+
+.ems-header__link:hover, .ems-header__link.active {
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+}
+
+.ems-header__link:hover, .ems-header__link.active {
+  background: rgba(255,255,255,0.17);
+  color: #fff;
+}
+
+.ems-header__right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ems-header__search {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-right: 18px;
+}
+
+.ems-header__search input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+  background: transparent;
+  color: #222;
+  width: 140px;
+}
+
+.ems-header__search button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  color: #1976d2;
+  font-size: 1.3rem;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ems-header__search button:hover {
+  background: #f2f2f2;
+  color: #1565c0;
+}
+
+.ems-header__search-icon {
+  display: block;
+}
+
+.ems-header__btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+  letter-spacing: 0.5px;
+  margin-left: 4px;
+}
+
+.ems-header__logout:hover {
+  background: #c0392b;
+}

@@ -1,0 +1,128 @@
+/* Modern centered login page */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #ffe6b3 0%, #fff9f3 100%);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-form-wrapper {
+  background: #fff;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 48px;
+  min-width: 340px;
+  max-width: 470px;
+  width: 100%;
+  box-shadow: 0 8px 32px 2px #f7c87333;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 340px;
+}
+
+.login-form h2 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+}
+.login-form label {
+  font-size: 1.07rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+  color: #222;
+}
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 7px;
+  border: 1.5px solid #e7e7e7;
+  font-size: 1.08rem;
+  margin-bottom: 15px;
+  background: #fafafa;
+  color: #222;
+  transition: border 0.18s;
+}
+.login-form input:focus,
+.login-form select:focus {
+  border: 1.5px solid #222;
+  outline: none;
+}
+.login-form .form-row {
+  margin-bottom: 12px;
+}
+.login-form .login-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.login-form .remember-me {
+  display: flex;
+  align-items: center;
+  font-size: 0.98rem;
+}
+.login-form .forgot-link {
+  font-size: 0.98rem;
+  color: #1976d2;
+  text-decoration: none;
+  margin-left: 10px;
+  transition: color 0.18s;
+}
+.login-form .forgot-link:hover {
+  color: #222;
+}
+.login-form button[type="submit"] {
+  width: 100%;
+  padding: 12px 0;
+  background: #222;
+  color: #fff;
+  font-size: 1.13rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 7px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.login-form button[type="submit"]:hover {
+  background: #222;
+  color: #fff;
+}
+.login-form .signup-link {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  color: #888;
+  font-size: 0.98rem;
+}
+.login-form .signup-link span {
+  color: #222;
+  cursor: pointer;
+  margin-left: 4px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .login-container {
+    min-height: 100vh;
+    padding: 16px;
+  }
+  .login-form-wrapper {
+    padding: 32px 24px;
+    min-width: unset;
+    max-width: unset;
+    width: 100%;
+  }
+}
